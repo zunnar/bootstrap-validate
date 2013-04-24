@@ -91,7 +91,10 @@
       return this.each(function(i, el) {
         var $form, handlers, validation;
         $form = $(el);
+        // for jquery less 1.8 version use
         handlers = $form.data('events').submit;
+        // for jquery 1.8+ use
+        // handlers = $._data($form[0], 'events').submit;
         validation = handlers.pop();
         return handlers = handlers.splice(0, 0, validation);
       });
